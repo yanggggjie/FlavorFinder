@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/proxy/:path*",
-      "destination": "http://localhost:3001/:path*"
+      "destination": "https://www.themealdb.com/api/json/v1/1/:path*"
     }
   ]
 }
