@@ -22,7 +22,7 @@ function Component({ surpriseClicked, setSurpriseClicked }: Props) {
   }, [surpriseClicked, mutate, setSurpriseClicked])
 
   useEffect(() => {
-    setSize(3)
+    setSize(4)
   }, [])
   if (isLoading) return <div>loading...</div>
   if (error) return <div>error</div>
