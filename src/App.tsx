@@ -1,42 +1,16 @@
 import { useState } from 'react'
-import Header from './components/Header/Header.js'
-import { ITab } from './type.js'
-import SurpriseBoard from './components/SurpriseBoard.js'
-import SearchBoard from './components/SearchBoard.js'
-import { useDebounce } from 'usehooks-ts'
-import FavoriteButton from './components/FavoriteButton.js'
-import FavoriteList from './components/FavoriteList/FavoriteList.js'
+import clsx from 'clsx'
+import Home from './components/Home/Home.js'
+import { Route, Routes } from 'react-router-dom'
+import Detail from './components/Detail/Detail.js'
 
 function Component() {
-  const [searchText, setSearchText] = useState('')
-  const [tab, setTab] = useState<ITab>(ITab.Surprise)
-  const debouncedSearchText = useDebounce(searchText, 1000)
-  const [surpriseClicked, setSurpriseClicked] = useState(false)
-  const [showFavorite, setShowFavorite] = useState(true)
-
   return (
     <div>
-      <Header
-        searchText={searchText}
-        setSearchText={setSearchText}
-        setTab={setTab}
-        setSurpriseClicked={setSurpriseClicked}
-      ></Header>
-      <div>
-        {tab === ITab.Surprise && (
-          <SurpriseBoard
-            surpriseClicked={surpriseClicked}
-            setSurpriseClicked={setSurpriseClicked}
-          ></SurpriseBoard>
-        )}
-        {tab === ITab.Search && (
-          <SearchBoard searchText={debouncedSearchText}></SearchBoard>
-        )}
-      </div>
-      <FavoriteButton setShowFavorite={setShowFavorite}></FavoriteButton>
-      {showFavorite && (
-        <FavoriteList setShowFavorite={setShowFavorite}></FavoriteList>
-      )}
+      <Routes>
+        <Route path={'/'} element={<Home />}></Route>
+        <Route path={'/detail/:id'} element={<Detail />}></Route>
+      </Routes>
     </div>
   )
 }

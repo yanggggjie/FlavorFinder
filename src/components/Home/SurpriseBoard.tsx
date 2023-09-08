@@ -1,4 +1,4 @@
-import sortQueryOrder from '../utils/sortQueryOrder.js'
+import sortQueryOrder from '../../utils/sortQueryOrder.js'
 import useSWRInfinite from 'swr/infinite'
 import { useEffect } from 'react'
 import Board from './Board/Board.js'

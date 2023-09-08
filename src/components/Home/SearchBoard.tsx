@@ -1,6 +1,4 @@
 import Board from './Board/Board.js'
-import useSWRInfinite from 'swr/infinite'
-import { useEffect } from 'react'
 import useSWR from 'swr'
 import { IMeal } from './type.js'
 interface Props {
